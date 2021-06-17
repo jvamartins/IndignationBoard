@@ -35,7 +35,7 @@ class Board extends Component {
       let newCSEs = this.increaseIndignationByOne(id, this.state.cses);
       this.setState({
         ...this.state,
-        tses: newCSEs,
+        cses: newCSEs,
       });
       localStorage.setItem("cses", JSON.stringify(newCSEs));
     } else {

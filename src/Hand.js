@@ -6,9 +6,9 @@ class Hand extends Component {
     return (
       <div className="Hand card-group">
         <h2>{this.props.title}</h2>
-        <Card />
-        <Card />
-        <Card />
+        {this.props.list.map((card) => (
+          <Card name={card.name} score={card.score} />
+        ))}
       </div>
     );
   }

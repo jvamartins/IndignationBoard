@@ -10,19 +10,56 @@ class Board extends Component {
     };
   }
 
-  getTSES() {}
+  getTSES() {
+    if (localStorage.getItem("tses") === null) {
+      return [
+        { name: "JVM", score: 0 },
+        { name: "Lino", score: 0 },
+        { name: "Jesus", score: 0 },
+        { name: "Cleyman", score: 0 },
+        { name: "Richard", score: 0 },
+      ];
+    } else {
+      return JSON.parse(localStorage.getItem("tses"));
+    }
+  }
 
-  getCSES() {}
+  getCSES() {
+    if (localStorage.getItem("cses") === null) {
+      return [
+        { name: "Alfs", score: 0 },
+        { name: "Giuli", score: 0 },
+        { name: "Jams", score: 0 },
+        { name: "Marcos", score: 0 },
+        { name: "Mats", score: 0 },
+        { name: "Migs", score: 0 },
+        { name: "Rafa", score: 0 },
+      ];
+    } else {
+      return JSON.parse(localStorage.getItem("tses"));
+    }
+  }
 
-  getLeadership() {}
+  getLeadership() {
+    if (localStorage.getItem("leadership") === null) {
+      return [
+        { name: "Benner", score: 0 },
+        { name: "Guga", score: 0 },
+        { name: "Carlos", score: 0 },
+        { name: "Marcel", score: 0 },
+      ];
+    } else {
+      return JSON.parse(localStorage.getItem("tses"));
+    }
+  }
 
   render() {
     return (
       <div className="Board">
         <h1>Indignation Board, MADAFACKAS</h1>
-        <Hand title="TSEs" />
-        <Hand title="CSEs" />
-        <Hand title="LEADERSHIP" />
+        <Hand title="TSEs" list={this.state.tses} />
+        <Hand title="CSEs" list={this.state.cses} />
+        <Hand title="LEADERSHIP" list={this.state.leadership} />
       </div>
     );
   }

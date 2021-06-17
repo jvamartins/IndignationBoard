@@ -8,8 +8,15 @@ class Hand extends Component {
         <h2>{this.props.title}</h2>
         <h3>Total Score: {this.props.totalScore}</h3>
         <div className="Hand card-group">
-          {this.props.list.map((card) => (
-            <Card name={card.name} score={card.score} />
+          {this.props.list.map((person) => (
+            <Card
+              key={person.id}
+              id={person.id}
+              name={person.name}
+              type={person.type}
+              score={person.score}
+              increaseIndignation={this.props.increaseIndignation}
+            />
           ))}
         </div>
       </div>

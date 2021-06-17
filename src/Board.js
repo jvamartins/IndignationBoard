@@ -53,13 +53,32 @@ class Board extends Component {
     }
   }
 
+  calculateScore(list) {
+    let sum = list.reduce((acc, curr) => {
+      return acc + curr.score;
+    }, 0);
+    return sum;
+  }
+
   render() {
     return (
       <div className="Board">
         <h1>Indignation Board, MADAFACKAS</h1>
-        <Hand title="TSEs" list={this.state.tses} />
-        <Hand title="CSEs" list={this.state.cses} />
-        <Hand title="LEADERSHIP" list={this.state.leadership} />
+        <Hand
+          title="TSEs"
+          list={this.state.tses}
+          totalScore={this.calculateScore(this.state.tses)}
+        />
+        <Hand
+          title="CSEs"
+          list={this.state.cses}
+          totalScore={this.calculateScore(this.state.cses)}
+        />
+        <Hand
+          title="LEADERSHIP"
+          list={this.state.leadership}
+          totalScore={this.calculateScore(this.state.leadership)}
+        />
       </div>
     );
   }

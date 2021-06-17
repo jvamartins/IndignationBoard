@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Card extends Component {
   render() {
-    let path = "";
+    let path = require(`./photos/${this.props.name.toLowerCase()}.png`).default;
     return (
       <div className="card">
         <img src={path} alt="..." className="card-img-top" />
